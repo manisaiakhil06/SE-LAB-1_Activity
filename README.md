@@ -12,7 +12,7 @@
 
 The Database Query Performance Profiler is a database observability tool that ingests slow-query logs, parses PostgreSQL and MySQL execution plans, identifies possible missing indexes, and generates weekly performance-optimization digests.
 
-**Primary stakeholders:**
+**Primary Stakeholders:**
 
 - Database Administrator
 - Backend Lead
@@ -24,7 +24,7 @@ The Database Query Performance Profiler is a database observability tool that in
 - [Problem Statement](docs/Problem_Statement.pdf)
 - [Requirements Specification](docs/Requirements_Specification.md)
 - [Requirements Table](docs/Requirements_Table.docx)
-- [UML Use-Case Diagram](diagrams/UML_Use_Case_Diagram.pdf)
+- [UML Use-Case Diagram PDF](diagrams/UML_Use_Case_Diagram.pdf)
 - [UML Diagram Source](diagrams/use_case_diagram.puml)
 - [Use-Case Flow Specification](docs/Use_Case_Specification.md)
 - [Use-Case Flow Document](docs/Use_Case_Flow.docx)
@@ -53,15 +53,21 @@ The Database Query Performance Profiler is a database observability tool that in
 
 ---
 
-## UML Use-Case Model
+## UML Use-Case Diagram
 
-**Actors:**
+> Upload `UML_Use_Case_Diagram.png` inside the `diagrams` folder to display the diagram below.
+
+![UML Use-Case Diagram](diagrams/UML_Use_Case_Diagram.png)
+
+[Download UML Use-Case Diagram PDF](diagrams/UML_Use_Case_Diagram.pdf)
+
+### Actors
 
 - Database Administrator
 - Backend Lead
 - DBMS / Log Source
 
-**Core use cases:**
+### Core Use Cases
 
 1. Ingest Slow Query Logs  
 2. Rank Slow Queries  
@@ -70,18 +76,18 @@ The Database Query Performance Profiler is a database observability tool that in
 5. Review / Decide Recommendation  
 6. Generate Weekly Optimization Digest  
 
-The model includes:
+### UML Relationships
 
-- `<<include>>` relationship: Analyse Query Execution Plan includes Generate Index Recommendation.
-- `<<extend>>` relationship: Review / Decide Recommendation extends Generate Index Recommendation.
+- `<<include>>`: Analyse Query Execution Plan includes Generate Index Recommendation.
+- `<<extend>>`: Review / Decide Recommendation extends Generate Index Recommendation.
 
 ---
 
-## Core Use Case
+## Core Use Case Flow
 
 ### UC-01: Analyse Query Execution Plan
 
-**Primary Actor:** Database Administrator
+**Primary Actor:** Database Administrator  
 
 **Preconditions:**
 
@@ -92,6 +98,21 @@ The model includes:
 
 - The analysis result, detected issues, and generated recommendation are saved in the query profile.
 
-**Alternate Flow:**
+### Main Success Scenario
 
-If the execution plan is invalid or unsupported, the system displays the validation error, records an audit event, and allows the Database Administrator to upload a corrected plan or exit without creating a recommendation.
+1. The Database Administrator opens a slow-query record.
+2. The system displays normalized query details and the execution plan.
+3. The Database Administrator selects **Analyse Plan**.
+4. The system validates and parses the plan.
+5. The system identifies sequential scans and checks filtered or join columns for missing indexes.
+6. The system generates a proposed index definition and confidence level.
+7. The system displays supporting evidence and the recommendation.
+8. The Database Administrator accepts, dismisses, or annotates the recommendation.
+9. The system records the decision, user, timestamp, and annotation.
+10. The system confirms that the analysis and decision were saved.
+
+### Alternate Flow A1: Unsupported or Invalid Plan
+
+1. If the plan cannot be parsed or is unsupported, the system marks the analysis as failed and displays a validation error.
+2. The system retains the original query and records an audit event.
+3. The Database Administrator may upload a corrected plan or exit without creating a recommendation.
