@@ -3,7 +3,7 @@
 **Course:** Software Engineering Lab (UE24CS341A)  
 **Institution:** PES University - Department of CSE  
 **Student:** Nallamalli Kanaka Mani Sai Akhil  
-**SRN:** PES1UG24CS290  
+**USN:** PES1UG24CS290  
 **Problem Statement #44:** Database Query Performance Profiler  
 
 ---
@@ -32,30 +32,7 @@ The Database Query Performance Profiler is a database observability tool that in
 
 ---
 
-## Functional Requirements
-
-| ID | Description | Priority |
-|---|---|---|
-| FR-001 | The system shall parse PostgreSQL and MySQL EXPLAIN plans, identify sequential scans on large tables, and recommend index column definitions. | High |
-| FR-002 | The system shall ingest slow-query logs from configured PostgreSQL and MySQL sources. | High |
-| FR-003 | The system shall rank slow-query fingerprints by cumulative execution time, average execution time, and execution count. | High |
-| FR-004 | The system shall allow a Database Administrator to accept, dismiss, or annotate generated index recommendations. | Medium |
-| FR-005 | The system shall generate a weekly optimization digest with query, plan-issue, and recommendation information. | Medium |
-
----
-
-## Non-Functional Requirements
-
-| ID | Type | Description | Priority |
-|---|---|---|---|
-| NFR-001 | Performance & Security | The system shall ingest up to 5,000 log records per minute without data loss or significant host database degradation. | High |
-| NFR-002 | Security | The system shall encrypt stored query logs and enforce role-based access control for profiler data and actions. | High |
-
----
-
 ## UML Use-Case Diagram
-
-> Upload `UML_Use_Case_Diagram.png` inside the `diagrams` folder to display the diagram below.
 
 ![UML Use-Case Diagram](diagrams/UML_Use_Case_Diagram.png)
 
@@ -83,7 +60,28 @@ The Database Query Performance Profiler is a database observability tool that in
 
 ---
 
-## Core Use Case Flow
+## Functional Requirements
+
+| ID | Description | Priority |
+|---|---|---|
+| FR-001 | The system shall parse PostgreSQL and MySQL EXPLAIN plans, identify sequential scans on large tables, and recommend index column definitions. | High |
+| FR-002 | The system shall ingest slow-query logs from configured PostgreSQL and MySQL sources. | High |
+| FR-003 | The system shall rank slow-query fingerprints by cumulative execution time, average execution time, and execution count. | High |
+| FR-004 | The system shall allow a Database Administrator to accept, dismiss, or annotate generated index recommendations. | Medium |
+| FR-005 | The system shall generate a weekly optimization digest with query, plan-issue, and recommendation information. | Medium |
+
+---
+
+## Non-Functional Requirements
+
+| ID | Type | Description | Priority |
+|---|---|---|---|
+| NFR-001 | Performance & Security | The system shall ingest up to 5,000 log records per minute without data loss or significant host database degradation. | High |
+| NFR-002 | Security | The system shall encrypt stored query logs and enforce role-based access control for profiler data and actions. | High |
+
+---
+
+## Core Use-Case Flow
 
 ### UC-01: Analyse Query Execution Plan
 
