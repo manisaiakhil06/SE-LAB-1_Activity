@@ -3,7 +3,7 @@
 **Course:** Software Engineering Lab (UE24CS341A)  
 **Institution:** PES University - Department of CSE  
 **Student:** Nallamalli Kanaka Mani Sai Akhil  
-**USN:** PES1UG24CS290  
+**SRN:** PES1UG24CS290  
 **Problem Statement #44:** Database Query Performance Profiler  
 
 ---
