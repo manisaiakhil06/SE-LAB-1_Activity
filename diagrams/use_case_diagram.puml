@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+actor "Database Administrator" as DBA
+actor "Backend Lead" as BL
+actor "DBMS / Log Source" as DB
+
+rectangle "Database Query Performance Profiler" {
+  usecase "Ingest Slow Query Logs" as UC1
+  usecase "Rank Slow Queries" as UC2
+  usecase "Analyse Query Execution Plan" as UC3
+  usecase "Generate Index Recommendation" as UC4
+  usecase "Review / Decide Recommendation" as UC5
+  usecase "Generate Weekly Optimization Digest" as UC6
+}
+
+DBA -- UC1
+DBA -- UC3
+DBA -- UC5
+BL -- UC2
+BL -- UC6
+DB -- UC1
+DB -- UC3
+UC3 .> UC4 : <<include>>
+UC5 .> UC4 : <<extend>>
+@enduml
