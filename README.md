@@ -87,3 +87,47 @@
 - At Step 4, if the plan cannot be parsed or is unsupported, the system marks the analysis as failed and displays a validation error.
 - The system retains the original query record and records an audit event.
 - The Database Administrator may upload a corrected plan or exit without creating a recommendation.
+
+
+---
+
+# 🧩 SE Lab 3: Component Modelling & Architectural Pattern Selection
+
+**Course:** Software Engineering Lab  
+**Problem Statement #44:** Database Query Performance Profiler  
+
+## 📌 Lab 3 Deliverables
+
+- 📐 **Component Diagram:** [`Lab3/Component_Diagram.pdf`](Lab3/Component_Diagram.pdf)
+- 🖼️ **Component Diagram Image:** [`Lab3/Component_Diagram.png`](Lab3/Component_Diagram.png)
+- 📝 **Architecture Justification:** [`Lab3/Architecture_Justification.pdf`](Lab3/Architecture_Justification.pdf)
+- 📄 **Architecture Justification (Word):** [`Lab3/Architecture_Justification.docx`](Lab3/Architecture_Justification.docx)
+
+## 🏗️ Architecture Selected
+
+**Microservices Architecture**
+
+The Lab 3 component diagram contains the profiler components and the required interfaces for the Database Query Performance Profiler.
+
+## 📐 Component Diagram
+
+![Lab 3 Component Diagram](Lab3/Component_Diagram.png)
+
+[Download Lab 3 Component Diagram PDF](Lab3/Component_Diagram.pdf)
+
+## 📝 Architecture Justification
+
+[Download Lab 3 Architecture Justification PDF](Lab3/Architecture_Justification.pdf)
+
+[Download Lab 3 Architecture Justification Word Document](Lab3/Architecture_Justification.docx)
+
+## 📁 Lab 3 Folder Structure
+
+```text
+Lab3/
+├── Architecture_Justification.docx
+├── Architecture_Justification.pdf
+├── Component_Diagram.pdf
+├── Component_Diagram.png
+└── README.md
+```
